@@ -1,0 +1,42 @@
+# DHRUV PATEL 0673
+
+I HAVE NEITHER GIVEN NOR RECEIVED UNAUTHORIZED AID IN COMPLETING THIS PROJECT.
+
+Name: Dhruv Patel (last four: 0673)
+Python version used: 3.12.1
+
+How to run (examples):
+  python pgrk_0673.py 10 -1 samplegraph_0673.txt
+  python pgrk_0673.py 0  -1 samplegraph_0673.txt
+  python pgrk_0673.py -3 -2 samplegraph_0673.txt
+  python pgrk_0673.py 0  -1 biggraph_0673.txt    # 100-node performance test
+
+Arguments:
+  iterations   >0  : run exactly that many iterations
+              =0  : run until convergence with default error rate 1e-5
+              <0  : run until convergence with error rate 10^(iterations)
+  initialvalue  0  : all zeros
+                1  : all ones
+               -1  : 1/N
+               -2  : 1/sqrt(N)
+
+Notes:
+  • Implements Google’s PageRank algorithm using synchronous updates.
+  • Damping factor (d) = 0.85.
+  • Includes “scaling step” each iteration to normalize rank vector (L1 = 1).
+  • Handles dangling nodes by redistributing their rank uniformly.
+  • Prints seven-decimal precision exactly as required.
+  • For N ≤ 10 → prints all iterations with Base and Iter lines.
+  • For N > 10 → prints only the final iteration vector.
+
+Performance verification:
+  Successfully executed PageRank on a 100-node, 500-edge random graph.
+  Converged in 10 iterations within ~3 seconds on Windows 11 (Python 3.12.1).
+  Sum of final ranks verified to be approximately 1.0000000.
+
+Testing summary:
+  • Verified outputs match the example PageRank convergence pattern.
+  • No external libraries used — fully compatible with Linux AFS environment.
+  • Meets runtime requirement (<5 seconds for N ≤ 100).
+
+End of file
